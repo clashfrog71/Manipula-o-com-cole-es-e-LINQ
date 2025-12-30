@@ -1,4 +1,11 @@
-﻿using System.Collections;
-
-var diasDaSemana = new ArrayList() { "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" };
-
+﻿var diasDaSemana = new List<string>
+{
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado"
+};
+var diasDoMes = new string[31];
