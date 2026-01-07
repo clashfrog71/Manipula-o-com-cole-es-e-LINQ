@@ -1,29 +1,10 @@
-﻿using System.Threading.Channels;
-
-class Program
+﻿public class Musica
 {
-
-    public static void Main(string[] args)
-    {
-        string[] diasDaSemana = new string[]
-     {
-        "Domingo",
-        "Segunda-feira",
-        "Terça-feira",
-        "Quarta-feira",
-        "Quinta-feira",
-        "Sexta-feira",
-        "Sábado"
-     };
-        Array carrinho = Array.CreateInstance(typeof(Produto), 3);
-foreach(var dia in diasDaSemana)
-        {
-            Console.WriteLine(dia);
-        }
-    }
+    public string Tiutulo { get; set; }
+    public string Artista { get; set; }
+    public int DuracaoEmSegundos { get; set; }
 }
-class Produto
+class playlist : IEnumerable<Musica>
 {
-    public string Nome { get; set; }
-    public double Preco { get; set; }
+    public void ie
 }
