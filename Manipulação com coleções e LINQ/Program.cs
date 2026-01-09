@@ -7,4 +7,5 @@
 class playlist : IEnumerable<Musica>
 {
     public void ie
+
 }
