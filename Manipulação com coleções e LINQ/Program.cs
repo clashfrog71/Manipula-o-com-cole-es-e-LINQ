@@ -19,6 +19,7 @@ class Program
     {
         public string nome { get; set; }
         private List<Musica> musicas = [];
+
         public void AdicionarMusica(Musica musica)
         {
             musicas.Add(musica);
@@ -28,7 +29,7 @@ class Program
         {
             return musicas.GetEnumerator();
         }
-
+        public void acharMusicas()
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
