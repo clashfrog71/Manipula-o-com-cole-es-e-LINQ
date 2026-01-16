@@ -30,6 +30,9 @@ class Program
             return musicas.GetEnumerator();
         }
         public void acharMusicas()
+        {
+
+        }
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
