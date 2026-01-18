@@ -29,7 +29,10 @@ class Program
         {
             musicas.Add(musica);
         }
-
+        public void RemoverMusica(Musica musica)
+        {
+            musicas.Remove(musica);
+        }
         public IEnumerator<Musica> GetEnumerator()
         {
             return musicas.GetEnumerator();
