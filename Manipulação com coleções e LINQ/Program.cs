@@ -19,6 +19,7 @@ class Program
         public int DuracaoEmSegundos { get; set; }
     }
     
+
     class Playlist : IEnumerable<Musica>
 
     {
