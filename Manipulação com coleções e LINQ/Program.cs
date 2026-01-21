@@ -46,6 +46,20 @@ class Program
                 Console.WriteLine($"Título: {m.Titulo}, Artista: {m.Artista}, Duração: {m.DuracaoEmSegundos} segundos");
             });
         }
+        public void acharMusicasPeloArtista(string artista)
+        {
+            musicas.Where(m => m.Artista.Contains(artista)).ToList().ForEach(m =>
+            {
+                Console.WriteLine($"Título: {m.Titulo}, Artista: {m.Artista}, Duração: {m.DuracaoEmSegundos} segundos");
+            });
+        }
+        public void ListarMusicasPorDuracao(int duracaoMinima)
+        {
+            musicas.Where(m => m.DuracaoEmSegundos >= duracaoMinima).ToList().ForEach(m =>
+            {
+                Console.WriteLine($"Título: {m.Titulo}, Artista: {m.Artista}, Duração: {m.DuracaoEmSegundos} segundos");
+            });
+        }
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
