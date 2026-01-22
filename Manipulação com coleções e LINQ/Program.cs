@@ -10,7 +10,6 @@ class Program
         playlist.AdicionarMusica(musica1);
         playlist.AdicionarMusica(musica2);
         playlist.AdicionarMusica(musica3);
-        playlist.acharMusicasPeloTitulo("Hotel");
     }
     public class Musica
     {
