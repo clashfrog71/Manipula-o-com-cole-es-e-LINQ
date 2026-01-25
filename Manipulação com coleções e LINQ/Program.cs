@@ -11,6 +11,10 @@ class Program
         playlist.AdicionarMusica(musica2);
         playlist.AdicionarMusica(musica3);
     }
+    void exibirMaisTocadas(Playlist playlist1, Playlist playlist2)
+    {
+        
+    }
     public class Musica
     {
         public string Titulo { get; set; }
