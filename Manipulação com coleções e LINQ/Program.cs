@@ -13,7 +13,23 @@ class Program
     }
     void exibirMaisTocadas(Playlist playlist1, Playlist playlist2)
     {
-        
+        Dictionary<Playlist, int> ranking = [];
+        foreach (var musica in playlist1)
+        {
+            ranking.Add(musica, 1);
+        }
+        foreach (var musica in playlist2)
+        {
+                if (ranking.TryGetValue(musica, out int contagem))
+            {
+                contagem++;
+                ranking[musica]=contagem;
+
+            }else
+            {
+                ranking[musica] = 1;
+            }
+        }
     }
     public class Musica
     {
