@@ -91,4 +91,26 @@ class Program
             }
         }
     }
+    class PlayerDeMusica
+    {
+        List<Musica> filaDeMusica = [];
+        public void AdicionarMusicanaFila(Musica musica)
+        {
+            filaDeMusica.Add(musica);
+        }
+        public void AdiconarPlaystainaFila(Playlist playlist)
+        {
+            foreach (var musica in playlist)
+            {
+                filaDeMusica.Add(musica);
+            }
+        }
+        public IEnumerable<Musica> TocarMusica()
+        {
+            foreach (var musica in filaDeMusica)
+            {
+                yield return musica;
+            }
+        }
+    }
 }
