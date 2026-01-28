@@ -13,7 +13,7 @@ class Program
     }
     void exibirMaisTocadas(Playlist playlist1, Playlist playlist2)
     {
-        Dictionary<Playlist, int> ranking = [];
+        Dictionary<Musica, int> ranking = [];
         foreach (var musica in playlist1)
         {
             ranking.Add(musica, 1);
@@ -93,16 +93,30 @@ class Program
     }
     class PlayerDeMusica
     {
-        List<Musica> filaDeMusica = [];
+        private Queue<Musica> filaDeMusica = []; //musicas a serem tocadas
+        private Stack<Musica> pilhaDeMusica = []; //musicas ja tocadas
         public void AdicionarMusicanaFila(Musica musica)
         {
-            filaDeMusica.Add(musica);
+            filaDeMusica.Enqueue(musica);
         }
         public void AdiconarPlaystainaFila(Playlist playlist)
         {
             foreach (var musica in playlist)
             {
-                filaDeMusica.Add(musica);
+                AdicionarMusicanaFila(musica);
+            }
+        }
+        public void ProximadaFila()
+        {
+            if (filaDeMusica.Count > 0)
+            {
+                Musica musicaTocada = filaDeMusica.Dequeue();
+                pilhaDeMusica.Push(musicaTocada);
+                Console.WriteLine($"Tocando agora: {musicaTocada.Titulo} de {musicaTocada.Artista}");
+            }
+            else
+            {
+                Console.WriteLine("A fila de músicas está vazia.");
             }
         }
         public IEnumerable<Musica> TocarMusica()
