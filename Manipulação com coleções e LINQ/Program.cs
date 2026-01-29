@@ -20,12 +20,13 @@ class Program
         }
         foreach (var musica in playlist2)
         {
-                if (ranking.TryGetValue(musica, out int contagem))
+            if (ranking.TryGetValue(musica, out int contagem))
             {
                 contagem++;
-                ranking[musica]=contagem;
+                ranking[musica] = contagem;
 
-            }else
+            }
+            else
             {
                 ranking[musica] = 1;
             }
@@ -37,7 +38,7 @@ class Program
         public string Artista { get; set; }
         public int DuracaoEmSegundos { get; set; }
     }
-    
+
 
 
     class Playlist : IEnumerable<Musica>
@@ -106,18 +107,12 @@ class Program
                 AdicionarMusicanaFila(musica);
             }
         }
-        public void ProximadaFila()
+        public Musica? ProximadaFila()
         {
-            if (filaDeMusica.Count > 0)
-            {
-                Musica musicaTocada = filaDeMusica.Dequeue();
-                pilhaDeMusica.Push(musicaTocada);
-                Console.WriteLine($"Tocando agora: {musicaTocada.Titulo} de {musicaTocada.Artista}");
-            }
-            else
-            {
-                Console.WriteLine("A fila de músicas está vazia.");
-            }
+            if (filaDeMusica.Count == 0) return null;
+            var musicaAtual = filaDeMusica.Dequeue();
+            pilhaDeMusica.Push(musicaAtual);
+            return musicaAtual;
         }
         public IEnumerable<Musica> TocarMusica()
         {
@@ -125,6 +120,16 @@ class Program
             {
                 yield return musica;
             }
+        }
+        public Musica? MusicaAnterior()
+        {
+            if (pilhaDeMusica.Count == 0) return null;
+            return pilhaDeMusica.Pop();
+        }
+        public IEnumerable<Musica> Historico()
+        {
+            foreach (var musica in pilhaDeMusica)
+                yield return musica;
         }
     }
 }
